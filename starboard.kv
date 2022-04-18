@@ -34,14 +34,26 @@
         text: "Note Title"
 
     TextInput:
-        x: 256
-        width: root.width - 256
-        height: root.height - 56
+        x: 256 + 21
+        size: root.width - 256 - 21 - 21, root.height - 56
+        padding: 0, 0, 0, 0
         text: ""
+        
+        background_color: 0, 0, 0, 0
+        foreground_color: 1, 1, 1, 1
 
     TextInput:
         x: 44
         y: root.height - 56
         width: 150
         height: 56
-        text: "Search..."
+        hint_text: "Search..."
+        hint_text_color: 0.718, 0.718, 0.718, 1
+        multiline: "false"
+        
+        background_color: 0, 0, 0, 0
+        foreground_color: 1, 1, 1, 1
+
+        halign: "left"
+        valign: "center"
+        text_size: self.size
