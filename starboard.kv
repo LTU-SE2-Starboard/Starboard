@@ -34,26 +34,30 @@
         text: "Note Title"
 
     TextInput:
-        x: 256 + 21
-        size: root.width - 256 - 21 - 21, root.height - 56
-        padding: 0, 0, 0, 0
-        text: ""
-        
+        padding:          0, 0, 0, 0
         background_color: 0, 0, 0, 0
         foreground_color: 1, 1, 1, 1
+        hint_text_color:  0.718, 0.718, 0.718, 1
+        selection_color:  0.643, 0.761, 95.7, 0.2
+        cursor_color:     1, 1, 1, 0.5
+        cursor_width:     2
+        
+        x: 256 + 21
+        size: root.width - 256 - 21 - 21, root.height - 56
+        text: ""
 
     TextInput:
+        padding:          0, 0, 0, 0
+        background_color: 0, 0, 0, 0
+        foreground_color: 1, 1, 1, 1
+        hint_text_color:  0.718, 0.718, 0.718, 1
+        selection_color:  0.643, 0.761, 95.7, 0.2
+        cursor_color:     1, 1, 1, 0.5
+        cursor_width:     2
+        
         x: 44
-        y: root.height - 56
+        y: root.height - 75
         width: 150
         height: 56
         hint_text: "Search..."
-        hint_text_color: 0.718, 0.718, 0.718, 1
-        multiline: "false"
-        
-        background_color: 0, 0, 0, 0
-        foreground_color: 1, 1, 1, 1
-
-        halign: "left"
-        valign: "center"
-        text_size: self.size
+        multiline: "False"
