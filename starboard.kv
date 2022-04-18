@@ -1,18 +1,47 @@
 #:kivy 2.1.0
 
+<BackgroundColor@Widget>
+    background_color: 1, 1, 1, 1
+    canvas.before:
+        Color:
+            rgba: root.background_color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
 <StarboardInterface>:
-    BoxLayout:
-        orientation: "horizontal"
+    background_color: 0.263, 0.263, 0.263, 1
+    canvas.before:
+        Color:
+            rgba: root.background_color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    
+    Label:
+        x: 256 + 21
+        y: root.height - 56
+        size: root.width - 256 - 21, 56
 
-        BoxLayout:
-            width: 300
-            orientation: "vertical"
+        halign: "left"
+        valign: "middle"
+        text_size: self.size
+        max_lines: 1
 
-            TextInput:
-                text: ""
+        bold: "true"
+        font_size: "14pt"
 
-        BoxLayout:
-            orientation: "vertical"
+        text: "Note Title"
 
-            Label:
-                text: "Note Title"
+    TextInput:
+        x: 256
+        width: root.width - 256
+        height: root.height - 56
+        text: ""
+
+    TextInput:
+        x: 44
+        y: root.height - 56
+        width: 150
+        height: 56
+        text: "Search..."
