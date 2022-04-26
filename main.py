@@ -8,13 +8,9 @@ Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
 from kivy.app import App
 from kivy.uix.widget import Widget
 
-class StarboardInterface (Widget):
-        pass
-
 class Starboard (App):
-        def build (self):
-                return StarboardInterface()
-
+        def build(self):
+                pass
 
 if __name__ == '__main__':
         Starboard().run()
