@@ -9,10 +9,16 @@ Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.uix.textinput import TextInput
+from kivy.properties import StringProperty
 
 class Starboard (App):
         def build (self):
+                root = self.root
+                root.add_widget(NoteWidget(text = "Sample text"))
                 pass
+
+class NoteWidget (Widget):
+        text = StringProperty(None)
 
 class Note:
         def __init__ (path, templatePath = None):
@@ -31,6 +37,11 @@ class Note:
         def loadFromPath ():
                 pass
         
+def findNotePath (name):
+        return os.path.expanduser("~/.starboard/notes/", path)
+        
+def findTemplatePath (name):
+        return os.path.expanduser("~/.starboard/templates/", path)
 
 if __name__ == '__main__':
         os.makedirs(os.path.expanduser("~/.starboard/notes"), exist_ok = True)
