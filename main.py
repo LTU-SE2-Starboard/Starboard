@@ -26,28 +26,36 @@ class Starboard (App):
                 os.makedirs(os.path.expanduser("~/.starboard/notes"), exist_ok = True)
                 os.makedirs(os.path.expanduser("~/.starboard/templates"), exist_ok = True)
 
-                notes = {}
+                self.notes = {}
         
-                root = self.root
-                pages = NotePagesWidget()
-                interface.add_widget(pages)
-                pages.add_widget(NoteWidget(text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."))
-                pages.add_widget(NoteWidget(text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."))
-                pages.add_widget(NoteWidget(text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."))
-                pages.add_widget(NoteWidget(text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."))
+                self.pages = NotePagesWidget()
+                interface.add_widget(self.pages)
+                
+                self.createNote()
+                self.createNote()
+                self.createNote()
+                self.createNote()
+                self.selectNote("New note")
                 return interface
 
-        def createNote (template = None):
+        def createNote (self, template = None):
+                unnamedNumber = 1
+                while "New note " + str(unnamedNumber) in self.notes:
+                        unnamedNumber += 1
+                
+                name = "New note " + str(unnamedNumber)
+                self.notes[name] = Note(name, template)
+                print("Created new note", name)
                 pass
 
-        def selectNote (name):
+        def selectNote (self, name):
                 pass
 
 class NoteWidget (Widget):
         text = StringProperty(None)
 
 class Note:
-        def __init__ (path, templatePath = None):
+        def __init__ (self, path, templatePath = None):
                 self.widget = NoteWidget(text = "Sample text")
                 self.name = path
                 if templatePath:
