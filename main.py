@@ -10,11 +10,25 @@ from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.uix.textinput import TextInput
 from kivy.properties import StringProperty
+from kivy.properties import ObjectProperty
 
 class Starboard (App):
+        pages = ObjectProperty(None)
+
         def build (self):
+                os.makedirs(os.path.expanduser("~/.starboard/notes"), exist_ok = True)
+                os.makedirs(os.path.expanduser("~/.starboard/templates"), exist_ok = True)
+
+                notes = {}
+        
                 root = self.root
-                root.add_widget(NoteWidget(text = "Sample text"))
+                # self.pages.add_widget(NoteWidget(text = "Sample text"))
+                pass
+
+        def createNote (template = None):
+                pass
+
+        def selectNote (name):
                 pass
 
 class NoteWidget (Widget):
@@ -22,11 +36,12 @@ class NoteWidget (Widget):
 
 class Note:
         def __init__ (path, templatePath = None):
-                name = path
+                self.widget = NoteWidget(text = "Sample text")
+                self.name = path
                 if templatePath:
                         loadFromPath(templatePath)
-                text = ""
-                open = False
+                self.text = ""
+                self.open = False
 
         def getWidget ():
                 return widget
@@ -44,6 +59,4 @@ def findTemplatePath (name):
         return os.path.expanduser("~/.starboard/templates/", path)
 
 if __name__ == '__main__':
-        os.makedirs(os.path.expanduser("~/.starboard/notes"), exist_ok = True)
-        os.makedirs(os.path.expanduser("~/.starboard/templates"), exist_ok = True)
         Starboard().run()
