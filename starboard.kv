@@ -16,15 +16,24 @@ Widget:
         Rectangle:
             size: self.size
             pos: self.pos
-    
-    Label:
+
+    Widget:
         canvas.before:
             Color:
                 rgba: 0.125, 0.125, 0.125, 1
             Rectangle:
                 size: 256, root.height
                 pos: 0, 0
-        
+    
+    Label:
+        # canvas.before:
+            # Color:
+                # rgb: 1, 1, 1
+            # Rectangle:
+                # source: "shadow.png"
+                # size: root.width - 256, 16
+                # pos: 256, root.height - 72
+    
         x: 256 + 21
         y: root.height - 56
         size: root.width - 256 - 21, 56
@@ -67,7 +76,7 @@ Widget:
         x: 256 + 21
         size: root.width - 256 - 21 - 21, root.height - 56
         
-        text: "sdfdfssdf"
+        text: "Sample text."
 
     TextInput:
         padding:          0, 0, 0, 0
