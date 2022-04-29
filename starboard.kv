@@ -10,15 +10,26 @@
             pos: self.pos
 
 Widget:
-    background_color: 0.263, 0.263, 0.263, 1
     canvas.before:
         Color:
-            rgba: root.background_color
+            rgba: 0.263, 0.263, 0.263, 1
         Rectangle:
             size: self.size
             pos: self.pos
+
+    Image:
+        source: "search.png"
+        size: 50, 50
+        pos: 100, 100
     
     Label:
+        canvas.before:
+            Color:
+                rgba: 0.125, 0.125, 0.125, 1
+            Rectangle:
+                size: 256, root.height
+                pos: 0, 0
+        
         x: 256 + 21
         y: root.height - 56
         size: root.width - 256 - 21, 56
@@ -33,6 +44,14 @@ Widget:
 
         text: "Note Title"
 
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+            
+        bar_color: 1, 1, 1, 1
+        
+        size: 256, root.height - 56
+        
     TextInput:
         padding:          0, 0, 0, 0
         background_color: 0, 0, 0, 0
@@ -44,7 +63,8 @@ Widget:
         
         x: 256 + 21
         size: root.width - 256 - 21 - 21, root.height - 56
-        text: ""
+        
+        text: "sdfdfssdf"
 
     TextInput:
         padding:          0, 0, 0, 0

@@ -7,6 +7,7 @@ Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
 
 from kivy.app import App
 from kivy.uix.widget import Widget
+from kivy.uix.textinput import TextInput
 
 class Starboard (App):
         def build(self):
