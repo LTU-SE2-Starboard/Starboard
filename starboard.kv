@@ -12,14 +12,25 @@
 
 <NoteWidget>:
     TextInput:
-
-        padding:          0, 0, 0, 0
-        background_color: 0, 0, 0, 0
-        foreground_color: 1, 1, 1, 1
-        hint_text_color:  0.718, 0.718, 0.718, 1
-        selection_color:  0.643, 0.761, 95.7, 0.2
-        cursor_color:     1, 1, 1, 0.5
-        cursor_width:     2
+        canvas.before:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                source: "pageShadow.png"
+                size: 16, root.height
+                pos: root.x - 16, root.y
+            
+    
+        background_normal: "None"
+        background_active: "None"
+        border:            0, 0, 0, 0
+        padding:           0, 0, 0, 0
+        background_color:  0.263, 0.263, 0.263, 1
+        foreground_color:  1, 1, 1, 1
+        hint_text_color:   0.718, 0.718, 0.718, 1
+        selection_color:   0.643, 0.761, 95.7, 0.2
+        cursor_color:      1, 1, 1, 0.5
+        cursor_width:      2
             
         pos: root.pos
         size: root.size
@@ -27,7 +38,13 @@
         id: input
         text: root.text
 
-Widget:
+<NotePagesWidget>:
+    pos: 256 + 21, 0
+    size: win.Window.width - 256 - 21 - 21, win.Window.height - 56
+    id: pages
+    
+
+<StarboardInterface>:
     canvas.before:
         Color:
             rgba: 0.263, 0.263, 0.263, 1
@@ -57,18 +74,6 @@ Widget:
         font_size: "14pt"
 
         text: "Note Title"
-
-    PageLayout:
-        canvas.before:
-            Color:
-                rgba: 1, 0, 0, 1
-            Rectangle:
-                size: self.size
-                pos: self.pos
-        
-        pos: 256 + 21, 0
-        size: root.width - 256 - 21 - 21, root.height - 56
-        id: pages
 
     Widget:
         canvas.before:
