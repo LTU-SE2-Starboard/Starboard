@@ -13,12 +13,6 @@ from kivy.uix.pagelayout import PageLayout
 from kivy.properties import StringProperty
 from kivy.properties import ObjectProperty
 
-class StarboardInterface (Widget):
-        pass
-
-class NotePagesWidget (PageLayout):
-        pass
-
 class Starboard (App):
         def build (self):
                 interface = StarboardInterface()
@@ -31,6 +25,7 @@ class Starboard (App):
         
                 self.pageWidget = NotePagesWidget()
                 interface.add_widget(self.pageWidget)
+                interface.add_widget(NoteTitleWidget(text = "wow"))
                 
                 self.createNote()
                 self.createNote()
@@ -63,9 +58,6 @@ class Starboard (App):
 
                 note = self.notes[name]
 
-class NoteWidget (Widget):
-        text = StringProperty(None)
-
 class Note:
         def __init__ (self, path, templatePath = None):
                 self.widget = NoteWidget(text = "Sample text" + path)
@@ -89,6 +81,18 @@ def findNotePath (name):
         
 def findTemplatePath (name):
         return os.path.expanduser("~/.starboard/templates/", path)
+
+class NoteWidget (Widget):
+        text = StringProperty(None)
+
+class StarboardInterface (Widget):
+        pass
+
+class NotePagesWidget (PageLayout):
+        pass
+
+class NoteTitleWidget (TextInput):
+        pass
 
 if __name__ == '__main__':
         Starboard().run()

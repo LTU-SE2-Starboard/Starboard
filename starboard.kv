@@ -38,6 +38,27 @@
         id: input
         text: root.text
 
+<NoteTitleWidget>:
+    border:            0, 0, 0, 0
+    padding:           0, 0, 0, 0
+    background_color:  0, 0, 0, 0
+    foreground_color:  1, 1, 1, 1
+    hint_text_color:   0.718, 0.718, 0.718, 1
+    selection_color:   0.643, 0.761, 95.7, 0.2
+    cursor_color:      1, 1, 1, 0.5
+    cursor_width:      2
+
+    bold: "true"
+    font_size: "14pt"
+    
+    x: 256 + 21
+    y: win.Window.height - 75
+    size: win.Window.width - 256 - 21, 56
+
+    halign: "left"
+    text_size: self.size
+    max_lines: 1
+
 <NotePagesWidget>:
     pos: 256 + 21, 0
     size: win.Window.width - 256 - 21 - 21, win.Window.height - 56
@@ -53,27 +74,6 @@
             pos: self.pos
 
     TextInput:
-        border:            0, 0, 0, 0
-        padding:           0, 0, 0, 0
-        background_color:  0, 0, 0, 0
-        foreground_color:  1, 1, 1, 1
-        hint_text_color:   0.718, 0.718, 0.718, 1
-        selection_color:   0.643, 0.761, 95.7, 0.2
-        cursor_color:      1, 1, 1, 0.5
-        cursor_width:      2
-
-        bold: "true"
-        font_size: "14pt"
-        
-        x: 256 + 21
-        y: root.height - 75
-        size: root.width - 256 - 21, 56
-
-        halign: "left"
-        text_size: self.size
-        max_lines: 1
-
-        text: ""
 
     Widget:
         canvas.before:
