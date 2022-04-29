@@ -24,7 +24,7 @@
         background_normal: "None"
         background_active: "None"
         border:            0, 0, 0, 0
-        padding:           0, 0, 0, 0
+        padding:           16, 16, 16, 16
         background_color:  0.263, 0.263, 0.263, 1
         foreground_color:  1, 1, 1, 1
         hint_text_color:   0.718, 0.718, 0.718, 1
@@ -52,26 +52,26 @@
             size: self.size
             pos: self.pos
 
-    Label:
-        # canvas.before:
-            # Color:
-                # rgb: 1, 1, 1
-            # Rectangle:
-                # source: "shadow.png"
-                # size: root.width - 256, 16
-                # pos: 256, root.height - 72
-    
-        x: 256 + 21
-        y: root.height - 56
-        size: root.width - 256 - 21, 56
-
-        halign: "left"
-        valign: "middle"
-        text_size: self.size
-        max_lines: 1
+    TextInput:
+        border:            0, 0, 0, 0
+        padding:           0, 0, 0, 0
+        background_color:  0, 0, 0, 0
+        foreground_color:  1, 1, 1, 1
+        hint_text_color:   0.718, 0.718, 0.718, 1
+        selection_color:   0.643, 0.761, 95.7, 0.2
+        cursor_color:      1, 1, 1, 0.5
+        cursor_width:      2
 
         bold: "true"
         font_size: "14pt"
+        
+        x: 256 + 21
+        y: root.height - 75
+        size: root.width - 256 - 21, 56
+
+        halign: "left"
+        text_size: self.size
+        max_lines: 1
 
         text: "Note Title"
 
