@@ -27,15 +27,20 @@ class Starboard (App):
                 os.makedirs(os.path.expanduser("~/.starboard/templates"), exist_ok = True)
 
                 self.notes = {}
+                self.pages = []
         
-                self.pages = NotePagesWidget()
-                interface.add_widget(self.pages)
+                self.pageWidget = NotePagesWidget()
+                interface.add_widget(self.pageWidget)
                 
                 self.createNote()
                 self.createNote()
                 self.createNote()
                 self.createNote()
-                self.selectNote("New note")
+                self.selectNote("New note 1")
+                self.selectNote("New note 2")
+                self.selectNote("New note 3")
+                self.selectNote("New note 4")
+                self.selectNote("New note 2")
                 return interface
 
         def createNote (self, template = None):
@@ -49,27 +54,34 @@ class Starboard (App):
                 pass
 
         def selectNote (self, name):
-                pass
+                try:
+                        index = self.pages.index(name)
+                        self.pageWidget.page = index
+                except:
+                        self.pages.append(name)
+                        self.pageWidget.add_widget(self.notes[name].getWidget())
+
+                note = self.notes[name]
 
 class NoteWidget (Widget):
         text = StringProperty(None)
 
 class Note:
         def __init__ (self, path, templatePath = None):
-                self.widget = NoteWidget(text = "Sample text")
+                self.widget = NoteWidget(text = "Sample text" + path)
                 self.name = path
                 if templatePath:
                         loadFromPath(templatePath)
                 self.text = ""
                 self.open = False
 
-        def getWidget ():
-                return widget
+        def getWidget (self):
+                return self.widget
 
-        def load ():
+        def load (self):
                 pass
 
-        def loadFromPath ():
+        def loadFromPath (self):
                 pass
         
 def findNotePath (name):
