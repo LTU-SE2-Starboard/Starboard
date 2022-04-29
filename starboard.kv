@@ -16,11 +16,6 @@ Widget:
         Rectangle:
             size: self.size
             pos: self.pos
-
-    Image:
-        source: "search.png"
-        size: 50, 50
-        pos: 100, 100
     
     Label:
         canvas.before:
@@ -53,6 +48,14 @@ Widget:
         size: 256, root.height - 56
         
     TextInput:
+        canvas.before:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                source: "search.png"
+                size: 16, 16
+                pos: 20, root.height - 36
+
         padding:          0, 0, 0, 0
         background_color: 0, 0, 0, 0
         foreground_color: 1, 1, 1, 1
