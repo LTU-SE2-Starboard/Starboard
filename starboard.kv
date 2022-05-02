@@ -53,7 +53,7 @@
     
     x: 256 + 21
     y: win.Window.height - 75
-    size: win.Window.width - 256 - 21, 56
+    size: win.Window.width - 256 - 21 - 176, 56
 
     halign: "left"
     text_size: self.size
@@ -119,5 +119,33 @@
         pos: 212, root.height - 44
         size: 29, 29
         background_normal: "buttonnew.png"
-        background_down: "buttonnewpressed.png"
+        background_down: "buttonnewdown.png"
         text: "+"
+
+    Button:
+        pos: root.width - 44, root.height - 44
+        size: 29, 29
+        background_normal: "button.png"
+        background_down: "buttondown.png"
+        text: ""
+
+    Button:
+        pos: root.width - 88, root.height - 44
+        size: 29, 29
+        background_normal: "button.png"
+        background_down: "buttondown.png"
+        text: ""
+
+    Button:
+        pos: root.width - 132, root.height - 44
+        size: 29, 29
+        background_normal: "button.png"
+        background_down: "buttondown.png"
+        text: ""
+
+    Button:
+        pos: root.width - 176, root.height - 44
+        size: 29, 29
+        background_normal: "button.png"
+        background_down: "buttondown.png"
+        text: ""
